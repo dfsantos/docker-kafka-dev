@@ -1,5 +1,7 @@
 FROM alpine:3.12.0
 
+MAINTAINER Diego dos Santos <santos.diegoferreira@gmail.com>: 
+
 ###################
 # Linux base tools
 ###################
@@ -19,8 +21,4 @@ RUN curl -o /opt/kafka-download.tgz http://ftp.unicamp.br/pub/apache/kafka/2.6.0
     tar -xzf kafka-download.tgz -C kafka --strip-components 1 && \
     rm /opt/kafka-download.tgz
 
-###################
-# Run Kafka
-###################
-RUN cd /opt/kafka && \
-    ./bin/zookeeper-server-start.sh config/zookeeper.properties
+EXPOSE 2181 9092
